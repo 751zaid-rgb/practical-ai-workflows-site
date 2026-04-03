@@ -1,0 +1,70 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { siteConfig } from '@/data/site';
+import { processSteps } from '@/data/content';
+
+const title = `How It Works | ${siteConfig.name}`;
+const description = 'A simple engagement model: workflow audit, implementation sprint, embedded team training, and ongoing optimization.';
+---
+<MainLayout title={title} description={description}>
+  <PageHero
+    eyebrow="How it works"
+    title="A low-drama path from workflow problem to working implementation."
+    description="The process is designed to feel understandable and low risk. Start with one workflow, deliver it with clear scope, train the team, then improve it based on real usage."
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="The process"
+        title="Simple enough to explain. Practical enough to use."
+        description="This engagement model is meant to reduce confusion, not create more of it."
+      />
+      <div class="grid grid-4">
+        {processSteps.map((item) => (
+          <article class="card">
+            <span class="eyebrow">{item.step}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-band">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Client experience"
+        title="What a healthy first engagement feels like."
+        description="The process should feel direct, bounded, and commercially legible - not like a strategy maze."
+      />
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Clear scope</h3>
+          <p>One workflow, one operational target, and a visible path to implementation.</p>
+        </article>
+        <article class="card">
+          <h3>Shared expectations</h3>
+          <p>Everyone understands which tools are involved, where review happens, and what success looks like.</p>
+        </article>
+        <article class="card">
+          <h3>Measured next step</h3>
+          <p>The first workflow should tell you whether to optimize, expand, or stop - without hand-waving.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBand
+        title="Make the first workflow obvious and measurable."
+        description="That is usually the difference between AI adoption that sticks and AI adoption that becomes expensive wallpaper."
+      />
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,275 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import { siteConfig } from '@/data/site';
+import { heroBullets, flagshipWorkflows, workflowExamples, processSteps, serviceCards, differentiators, industries, trustPrinciples, faqs } from '@/data/content';
+
+const title = 'Practical AI workflows for small businesses';
+const description = 'AI workflows that save time and capture more leads - installed for you. Start with one workflow audit, implement it with the tools you already use, and expand from there.';
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteConfig.name,
+    url: `${siteConfig.url}${siteConfig.basePath}`,
+    email: siteConfig.contact.email,
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'AI Workflow Audit',
+    provider: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+    },
+    areaServed: 'US',
+    serviceType: 'AI workflow implementation services for small businesses',
+    description: 'Workflow audit, implementation sprints, and ongoing optimization for practical SMB AI workflows.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+];
+---
+<MainLayout title={`${title} | ${siteConfig.name}`} description={description} schema={schema}>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-panel">
+        <div class="hero-copy">
+          <span class="eyebrow">Implementation-first AI for U.S. small businesses</span>
+          <h1>AI workflows that save time and capture more leads - installed for you.</h1>
+          <p>
+            We help small businesses adopt AI in practical, non-hype ways. Respond faster, miss fewer leads, reduce admin work, and create clearer processes using the tools you already have.
+          </p>
+          <div class="button-row">
+            <a class="button" href={`${siteConfig.basePath}/contact`}>Get a workflow audit</a>
+            <a class="button-secondary" href={`${siteConfig.basePath}/how-it-works`}>See how it works</a>
+          </div>
+          <div class="badge-list">
+            {heroBullets.map((item) => <span class="badge">{item}</span>)}
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="metric-card">
+            <div class="stat">
+              <span>Initial wedge</span>
+              <strong>Home services</strong>
+            </div>
+            <div class="stat">
+              <span>Flagship offer</span>
+              <strong>Speed-to-lead, missed-call recovery, booking automation</strong>
+            </div>
+            <div class="stat">
+              <span>Delivery model</span>
+              <strong>Audit, sprint, training, optimization</strong>
+            </div>
+          </div>
+          <div class="kicker-grid">
+            <div class="kicker">Use the tools you already have</div>
+            <div class="kicker">Start with one workflow</div>
+            <div class="kicker">Measure the result</div>
+            <div class="kicker">Expand only when it works</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Flagship offer"
+        title="Start where small businesses feel the pain first."
+        description="The first workflow should be easy to understand, commercially meaningful, and measurable. For many service businesses, that means lead response, missed-call recovery, and booking handoff."
+      />
+      <div class="grid grid-3">
+        {flagshipWorkflows.map((item) => (
+          <article class="card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-band">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Workflow examples"
+        title="Concrete use cases, not abstract AI strategy."
+        description="The first version of this site is built around workflows that owners and managers already recognize as operational friction."
+      />
+      <div class="grid grid-2">
+        {workflowExamples.map((item) => (
+          <article class="card">
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="How it works"
+        title="Audit, implement, train, optimize."
+        description="The engagement model is intentionally simple. We help clients start with one workflow, deliver it with bounded scope, and improve it based on real usage instead of theory."
+      />
+      <div class="grid grid-4">
+        {processSteps.map((item) => (
+          <article class="card">
+            <span class="eyebrow">{item.step}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Services"
+        title="Productized services built around practical workflow change."
+        description="This is not heavy custom development sold as a default. The core offer is repeatable implementation work with clear boundaries and practical outcomes."
+      />
+      <div class="grid grid-3">
+        {serviceCards.map((service) => (
+          <article class="card">
+            <h3>{service.title}</h3>
+            <p><strong>{service.outcome}</strong></p>
+            <p>{service.description}</p>
+          </article>
+        ))}
+      </div>
+      <div class="button-row">
+        <a class="button-secondary" href={`${siteConfig.basePath}/services`}>See all services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Why this is different"
+        title="Built for practical adoption, not AI theater."
+        description="Small businesses usually do not need a giant transformation program. They need one workflow that works, a team that knows how to use it, and enough trust to keep using it."
+      />
+      <div class="compare-grid">
+        <article class="compare-card">
+          <h3>Generic AI consulting</h3>
+          <ul>
+            <li>Broad education with unclear next steps</li>
+            <li>Lots of strategy language, little installed workflow value</li>
+            <li>Often pushes new tooling without operational fit</li>
+            <li>Trust and review concerns arrive late</li>
+          </ul>
+        </article>
+        <article class="compare-card">
+          <h3>{siteConfig.name}</h3>
+          <ul>
+            {differentiators.map((item) => <li>{item}</li>)}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-band">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Trust and safety"
+        title="Useful AI use needs boundaries, not blind automation."
+        description="We help clients use AI responsibly inside everyday workflows. That means human review, clearer rules, and less confusion about what should - and should not - be automated."
+      />
+      <div class="grid grid-2">
+        {trustPrinciples.map((item) => (
+          <article class="card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+      <div class="button-row">
+        <a class="button-ghost" href={`${siteConfig.basePath}/trust-and-safety`}>See trust and safety approach</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Industry focus"
+        title="Built around home services first, with room to expand cleanly."
+        description="The first wedge is home services because the workflow pain is immediate and commercially visible. The site architecture also supports future expansion into property management and independent insurance without bloating the first version."
+      />
+      <div class="grid grid-3">
+        {industries.map((industry) => (
+          <article class="card">
+            <h3>{industry.name}</h3>
+            <p><strong>{industry.priority}</strong></p>
+            <p>{industry.summary}</p>
+          </article>
+        ))}
+      </div>
+      <div class="button-row">
+        <a class="button-secondary" href={`${siteConfig.basePath}/industries`}>See industry detail</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tight">
+    <div class="container">
+      <SectionHeader
+        eyebrow="FAQ"
+        title="Questions owners usually ask before they commit."
+        description="Clear answers matter more than hype."
+      />
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <article class="faq-item">
+            <h3>{item.question}</h3>
+            <p class="muted">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBand
+        title="Start with one workflow. Measure the result. Expand from there."
+        description="The right first move is usually not bigger AI strategy. It is one workflow that fixes a real operational bottleneck and proves its value in plain business terms."
+      />
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Request the next step"
+        title="Get a workflow audit."
+        description="If a workflow is slowing response time, leaking leads, or wasting staff time, start there. We will tell you whether it is a good fit for a practical first implementation."
+      />
+      <ContactForm />
+    </div>
+  </section>
+</MainLayout>

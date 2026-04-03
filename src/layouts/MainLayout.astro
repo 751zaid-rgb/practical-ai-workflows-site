@@ -1,0 +1,51 @@
+---
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import '@/styles/global.css';
+import { siteConfig } from '@/data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonical?: string;
+  schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const { title, description, image = siteConfig.ogImage, canonical, schema } = Astro.props;
+const canonicalUrl = canonical ?? Astro.url.href;
+const resolvedImage = image.startsWith('http') ? image : `${siteConfig.url}${siteConfig.basePath}${image}`;
+const schemaPayload = schema ? JSON.stringify(schema) : null;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={resolvedImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={resolvedImage} />
+    <meta name="theme-color" content="#335cff" />
+    <link rel="icon" href={`${siteConfig.basePath}/favicon.svg`} type="image/svg+xml" />
+    {schemaPayload && <script is:inline type="application/ld+json" set:html={schemaPayload} />}
+  </head>
+  <body>
+    <div class="site-shell">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

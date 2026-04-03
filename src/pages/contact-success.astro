@@ -1,0 +1,21 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { siteConfig } from '@/data/site';
+---
+<MainLayout title={`Thanks | ${siteConfig.name}`} description="Your workflow audit request has been prepared.">
+  <section class="section">
+    <div class="container">
+      <div class="page-hero">
+        <span class="eyebrow">Thanks</span>
+        <h1>Your workflow audit request is on its way.</h1>
+        <p>If your email app did not open, you can send the request manually to <a class="highlight" href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <CtaBand title="Want to tighten the message before you reach out?" description="Review the services page or trust-and-safety page, then come back when you are ready to describe the workflow bottleneck." />
+    </div>
+  </section>
+</MainLayout>

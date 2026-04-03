@@ -1,0 +1,78 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { siteConfig } from '@/data/site';
+
+const title = `About | ${siteConfig.name}`;
+const description = 'An implementation-first company focused on practical AI workflows for small businesses.';
+---
+<MainLayout title={title} description={description}>
+  <PageHero
+    eyebrow="About"
+    title="Built for owners who want practical workflow improvement, not AI theater."
+    description="This company exists for small businesses that are curious about AI but do not want hype, vague strategy, or heavyweight custom software as the starting point."
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Point of view"
+        title="Most small businesses do not need a bigger AI strategy deck."
+        description="They need one workflow that works, a team that understands it, and a clear next step once the first implementation proves useful."
+      />
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Implementation over abstraction</h3>
+          <p>We focus on installed workflows, team usage, review steps, and repeatable delivery instead of broad consulting language that never reaches operations.</p>
+        </article>
+        <article class="card">
+          <h3>Use what already works</h3>
+          <p>The default move is to work with existing tools and systems when possible, not force a small business into an unnecessary software migration.</p>
+        </article>
+        <article class="card">
+          <h3>Trust matters</h3>
+          <p>AI adoption only sticks if people understand where it helps, where it needs review, and what data and process boundaries still matter.</p>
+        </article>
+        <article class="card">
+          <h3>Productized delivery</h3>
+          <p>The offer is intentionally bounded so clients can start with one workflow, learn from it, and expand from evidence instead of pressure.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-band">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Who this is for"
+        title="Best fit for small businesses that feel real operational friction."
+        description="If the team is losing time to inbox triage, missed calls, slow lead follow-up, or inconsistent process execution, there is usually a practical first workflow worth addressing."
+      />
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Owner-led businesses</h3>
+          <p>Especially where the owner still feels the cost of slow follow-up and manual admin personally.</p>
+        </article>
+        <article class="card">
+          <h3>Operations-minded teams</h3>
+          <p>Businesses that want clarity, training, and measurable workflow improvement rather than AI novelty.</p>
+        </article>
+        <article class="card">
+          <h3>Teams using existing tools</h3>
+          <p>Companies that want to improve process quality without immediately turning the project into a custom platform build.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBand
+        title="If there is one workflow slowing the business down, that is the place to begin."
+        description="The first conversation should end with more clarity, not more jargon."
+      />
+    </div>
+  </section>
+</MainLayout>

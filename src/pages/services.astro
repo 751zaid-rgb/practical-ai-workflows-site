@@ -1,0 +1,73 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { siteConfig } from '@/data/site';
+import { serviceCards } from '@/data/content';
+
+const title = `Services | ${siteConfig.name}`;
+const description = 'Workflow audits, implementation sprints, ongoing AI ops support, embedded team training, and practical trust-and-safety support for small businesses.';
+---
+<MainLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Services"
+    title="Implementation-oriented services for practical AI adoption."
+    description="The offer stack is designed for small businesses that want bounded scope, operational clarity, and workflows that actually get used."
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Offer stack"
+        title="Start with one workflow and build from there."
+        description="Each service is designed to move a client from uncertainty to practical implementation without overselling custom software or vague strategy retainers."
+      />
+      <div class="grid grid-2">
+        {serviceCards.map((service) => (
+          <article class="card">
+            <h2 style="margin-top:0;">{service.title}</h2>
+            <p><strong>{service.outcome}</strong></p>
+            <p>{service.description}</p>
+            <ul>
+              {service.includes.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-band">
+    <div class="container">
+      <SectionHeader
+        eyebrow="What clients buy"
+        title="Bounded, measurable workflow work - not endless consulting ambiguity."
+        description="The strongest early engagements are small enough to ship, clear enough to evaluate, and practical enough to train the team around immediately."
+      />
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Who it is for</h3>
+          <p>Owners and operators who can point to a specific workflow bottleneck and want a practical first implementation.</p>
+        </article>
+        <article class="card">
+          <h3>What it changes</h3>
+          <p>Lead response, admin drag, internal handoff consistency, inbox triage, scheduling prep, and documented review rules.</p>
+        </article>
+        <article class="card">
+          <h3>What it avoids</h3>
+          <p>Overbuilt custom software, empty AI education, and big promises without a measurable first workflow.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBand
+        title="If the workflow is clear, the next step is the audit."
+        description="The audit is the fastest way to identify whether the first implementation should focus on lead response, missed calls, booking, inbox triage, or another operational bottleneck."
+      />
+    </div>
+  </section>
+</MainLayout>

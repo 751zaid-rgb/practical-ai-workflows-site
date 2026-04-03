@@ -1,0 +1,24 @@
+---
+import { siteConfig } from '@/data/site';
+const { pathname } = Astro.url;
+const normalize = (value: string) => value.replace(siteConfig.basePath, '') || '/';
+const currentPath = normalize(pathname);
+---
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href={`${siteConfig.basePath}/`}>
+      <span class="brand-mark">AI</span>
+      <span>{siteConfig.name}</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      {siteConfig.nav.map((item) => {
+        const href = `${siteConfig.basePath}${item.href === '/' ? '/' : item.href}`;
+        const active = currentPath === item.href;
+        return (
+          <a href={href} class={active ? 'active' : undefined}>{item.label}</a>
+        );
+      })}
+      <a class="button" href={`${siteConfig.basePath}${siteConfig.primaryCta.href}`}>{siteConfig.primaryCta.label}</a>
+    </nav>
+  </div>
+</header>

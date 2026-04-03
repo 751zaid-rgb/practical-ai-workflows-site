@@ -1,0 +1,22 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import ContactForm from '@/components/ContactForm.astro';
+import { siteConfig } from '@/data/site';
+
+const title = `Contact | ${siteConfig.name}`;
+const description = 'Request a workflow audit and describe the operational bottleneck you want to fix first.';
+---
+<MainLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Contact"
+    title="Request a workflow audit."
+    description="If a workflow is slowing response time, leaking leads, or creating repetitive admin work, start there. Describe the bottleneck and we will tell you whether it is a good fit for a practical first sprint."
+  />
+
+  <section class="section">
+    <div class="container">
+      <ContactForm />
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,75 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { siteConfig } from '@/data/site';
+import { trustPrinciples } from '@/data/content';
+
+const title = `Trust and Safety | ${siteConfig.name}`;
+const description = 'Practical AI trust and safety for small businesses: human review, data boundaries, and workflow documentation without fake compliance theater.';
+---
+<MainLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Trust and safety"
+    title="Practical AI use needs boundaries, documentation, and review."
+    description="The goal is not to make businesses fearful of AI. The goal is to help them use it more responsibly inside real workflows with clearer rules about access, review, and acceptable use."
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Principles"
+        title="Trust is part of implementation, not a last-minute slide."
+        description="Clients need to understand how AI fits into a workflow, where human review matters, and what should not be automated blindly."
+      />
+      <div class="grid grid-2">
+        {trustPrinciples.map((item) => (
+          <article class="card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-band">
+    <div class="container">
+      <SectionHeader
+        eyebrow="What this support is - and is not"
+        title="Responsible guidance without pretending to be something we are not."
+        description="This company helps small businesses use AI more safely inside workflows. It does not present itself as a law firm, formal compliance certifier, or security auditor."
+      />
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>What we do support</h3>
+          <ul>
+            <li>AI use policy support</li>
+            <li>Human review checkpoints</li>
+            <li>Tool-access boundaries</li>
+            <li>Process documentation for staff</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>What we do not claim</h3>
+          <ul>
+            <li>Guaranteed compliance outcomes</li>
+            <li>Legal advice</li>
+            <li>Security certification</li>
+            <li>Fully autonomous staff replacement</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBand
+        title="Safer AI use starts with a clearer workflow, not a bigger slogan."
+        description="If the workflow, review steps, and data boundaries are undefined, the AI problem is usually a process problem first."
+      />
+    </div>
+  </section>
+</MainLayout>

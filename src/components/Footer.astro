@@ -1,0 +1,27 @@
+---
+import { siteConfig } from '@/data/site';
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="brand" style="margin-bottom: 0.85rem;">
+        <span class="brand-mark">AI</span>
+        <span>{siteConfig.name}</span>
+      </div>
+      <p class="muted" style="max-width: 44rem;">
+        Practical AI workflows for small businesses. Start with one workflow, measure the result, and expand from there.
+      </p>
+      <p class="muted small">Primary fit: U.S. small businesses, especially home services teams that need faster follow-up, fewer missed leads, and less admin drag.</p>
+    </div>
+    <div>
+      <div class="footer-links">
+        {siteConfig.nav.map((item) => (
+          <a href={`${siteConfig.basePath}${item.href === '/' ? '/' : item.href}`}>{item.label}</a>
+        ))}
+      </div>
+      <div class="divider"></div>
+      <p class="muted small">{siteConfig.contact.email}</p>
+      <p class="muted small">Trust-conscious, implementation-first, and built for practical workflow adoption - not hype.</p>
+    </div>
+  </div>
+</footer>

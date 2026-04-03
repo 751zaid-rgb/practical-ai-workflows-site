@@ -1,0 +1,21 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { siteConfig } from '@/data/site';
+---
+<MainLayout title={`Page not found | ${siteConfig.name}`} description="The page you requested could not be found.">
+  <section class="section">
+    <div class="container">
+      <div class="page-hero">
+        <span class="eyebrow">404</span>
+        <h1>That page is not here.</h1>
+        <p>Try the services page, the industries page, or go straight to the workflow audit request.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <CtaBand title="Go back to a useful page." description="The workflow audit is still the strongest next step if you already know where the operational friction lives." />
+    </div>
+  </section>
+</MainLayout>

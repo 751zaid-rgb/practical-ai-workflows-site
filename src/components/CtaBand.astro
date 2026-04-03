@@ -1,0 +1,17 @@
+---
+import { siteConfig } from '@/data/site';
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+<div class="cta-band">
+  <span class="eyebrow" style="background: rgba(255,255,255,0.12); color: white;">Get started</span>
+  <h2 style="margin: 0.6rem 0 0.85rem; font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: -0.04em;">{title}</h2>
+  <p>{description}</p>
+  <div class="button-row">
+    <a class="button" href={`${siteConfig.basePath}${siteConfig.primaryCta.href}`}>{siteConfig.primaryCta.label}</a>
+    <a class="button-ghost" href={`${siteConfig.basePath}${siteConfig.secondaryCta.href}`}>{siteConfig.secondaryCta.label}</a>
+  </div>
+</div>

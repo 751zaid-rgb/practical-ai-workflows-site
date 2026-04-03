@@ -1,0 +1,76 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import CtaBand from '@/components/CtaBand.astro';
+import { siteConfig } from '@/data/site';
+import { industries } from '@/data/content';
+
+const title = `Industries | ${siteConfig.name}`;
+const description = 'Home services first, with future-ready solutions for property management and independent insurance agencies.';
+---
+<MainLayout title={title} description={description}>
+  <PageHero
+    eyebrow="Industries"
+    title="Specific enough to be useful, focused enough to stay credible."
+    description="The website starts with home services because the workflow pain is immediate and measurable. Property management and independent insurance are built into the architecture for later expansion."
+  />
+
+  <section class="section">
+    <div class="container">
+      <SectionHeader
+        eyebrow="Primary focus"
+        title="Home services businesses are the best initial wedge."
+        description="For many home services teams, slow follow-up, missed calls, quote-stage drift, and scheduling friction create obvious workflow pain that can be improved without a giant software build."
+      />
+      <div class="grid grid-3">
+        {industries.map((industry) => (
+          <article class="card">
+            <h3>{industry.name}</h3>
+            <p><strong>{industry.priority}</strong></p>
+            <p>{industry.summary}</p>
+            <div class="divider"></div>
+            <p class="small"><strong>Typical examples</strong></p>
+            <div class="pill-row">
+              {industry.examples.map((item) => <span class="pill">{item}</span>)}
+            </div>
+            <div class="divider"></div>
+            <p class="small"><strong>Workflow fit</strong></p>
+            <ul>
+              {industry.workflows.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-band">
+    <div class="container">
+      <SectionHeader
+        eyebrow="What is not the focus right now"
+        title="High-friction categories can wait until the operating model is stronger."
+        description="This first site intentionally avoids centering healthcare, legal, and recruiting decision automation because those markets add more regulatory, trust, and review friction than this first wedge needs."
+      />
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Why stay focused</h3>
+          <p>The fastest way to look generic is to claim every vertical. A sharper wedge makes the offer easier to understand and easier to trust.</p>
+        </article>
+        <article class="card">
+          <h3>How expansion stays clean</h3>
+          <p>The architecture already leaves room for property management and insurance pages to grow without diluting the home services message on day one.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <CtaBand
+        title="If your team is losing time or leads in one repeated workflow, start there."
+        description="The best first workflow is usually the one your staff complains about and your owner can see in the numbers."
+      />
+    </div>
+  </section>
+</MainLayout>
