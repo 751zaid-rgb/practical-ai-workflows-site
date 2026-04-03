@@ -8,7 +8,7 @@
   <rect width="1200" height="630" fill="url(#bg)" rx="32" />
   <rect x="54" y="54" width="1092" height="522" rx="28" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)" />
   <g font-family="Inter, Arial, sans-serif" fill="#ffffff">
-    <text x="96" y="156" font-size="28" font-weight="700" opacity="0.82">Practical AI Workflows</text>
+    <text x="96" y="156" font-size="28" font-weight="700" opacity="0.82">Operive</text>
     <text x="96" y="270" font-size="72" font-weight="800">AI workflows that save</text>
     <text x="96" y="348" font-size="72" font-weight="800">time and capture more leads.</text>
     <text x="96" y="430" font-size="28" opacity="0.8">Installed for small businesses. Implementation first. Start with one workflow.</text>

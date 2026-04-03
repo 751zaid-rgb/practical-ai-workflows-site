@@ -1,9 +1,9 @@
 export const siteConfig = {
-  name: 'Practical AI Workflows',
-  shortName: 'Practical AI Workflows',
-  title: 'Practical AI Workflows for Small Businesses',
+  name: 'Operive',
+  shortName: 'Operive',
+  title: 'Operive - Practical AI Workflows for Small Businesses',
   description:
-    'Practical AI workflows for small businesses. Respond faster, miss fewer leads, reduce admin work, and improve process consistency using the tools you already have.',
+    'Operive installs practical AI workflows for small businesses. Respond faster, miss fewer leads, reduce admin work, and improve process consistency using the tools you already have.',
   url: 'https://751zaid-rgb.github.io/practical-ai-workflows-site',
   basePath: '/practical-ai-workflows-site',
   locale: 'en-US',
@@ -26,7 +26,7 @@ export const siteConfig = {
     label: 'See how it works',
   },
   contact: {
-    email: 'hello@practicalaiworkflows.com',
+    email: 'hello@operive.com',
     formMode: 'mailto',
     formAction: '',
     responseTime: 'Most inquiries get a response within 1 business day.',

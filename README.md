@@ -1,6 +1,6 @@
-# Practical AI Workflows site
+# Operive site
 
-A premium, static marketing site for a small-business AI workflow implementation company.
+A premium, static marketing site for Operive, a small-business AI workflow implementation company.
 
 ## Positioning
 
