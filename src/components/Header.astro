@@ -6,9 +6,8 @@ const currentPath = normalize(pathname);
 ---
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href={`${siteConfig.basePath}/`}>
-      <span class="brand-mark">AI</span>
-      <span>{siteConfig.name}</span>
+    <a class="brand" href={`${siteConfig.basePath}/`} aria-label={`${siteConfig.name} home`}>
+      <img class="brand-logo" src={`${siteConfig.basePath}/logo.svg`} alt={`${siteConfig.name} logo`} width="320" height="72" />
     </a>
     <nav class="nav-links" aria-label="Primary">
       {siteConfig.nav.map((item) => {
